@@ -4,7 +4,7 @@ import './App.css';
 function StartMenu({ onStart }) {
     const [rows, setRows] = useState(6);
     const [cols, setCols] = useState(7);
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(0);
     const [opponent, setOpponent] = useState('');
     const [playerColor, setPlayerColor] = useState('');
     const [opponentColor, setOpponentColor] = useState('');
@@ -37,12 +37,33 @@ function StartMenu({ onStart }) {
     };
 
     switch (step) {
+        case 0:
+            return (
+                <div>
+                    <h1>This game developed as a part of a homework and added some add-ons to the game.</h1>
+                    <p>
+                        Add-on 1: The player can choose the size of the board.<br/>
+                        Add-on 2: The player can choose who he wants to play against - a human player or a computer -<br/>
+                        The computer will wait 3 seconds and then make a movement.<br/>
+                        Add-on 3: The player has to choose a token color from the colors provided<br/>
+                        Add-on 4: Each turn will last 10 seconds then it switch to the opponent's turn.<br/>
+                        Add-on 5: Added a falling animation for the tokens.<br/>
+                    </p>
+                    <button onClick={() => setStep(1)}>Next</button>
+                </div>
+            );
         case 1:
             return (
                 <div>
                     <h1>Welcome to Connect Four!</h1>
                     <p>
-                        Connect Four is a two-player connection game in which the players first choose a color and then take turns dropping colored discs from the top into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the next available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own discs. Connect Four is a solved game. The first player can always win by playing the right moves.
+                        Connect Four is a two-player connection game in which the players first choose a color
+                        and then take turns dropping colored discs from the top into a seven-column,
+                        six-row vertically suspended grid.
+                        The pieces fall straight down, occupying the next available space within the column.
+                        The objective of the game is to be the first to form a horizontal, vertical,
+                        or diagonal line of four of one's own discs.
+                        Connect Four is a solved game. The first player can always win by playing the right moves.
                     </p>
                     <button onClick={() => setStep(2)}>Next</button>
                 </div>
@@ -117,7 +138,7 @@ function StartMenu({ onStart }) {
                 </div>
             );
         default:
-            return setStep(1);
+            return setStep(0);
     }
 }
 
