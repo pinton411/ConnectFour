@@ -1,0 +1,131 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #34495e;
+  color: black;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  background-color: #2c3e50;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25), 0 8px 8px rgba(0,0,0,0.22);
+  max-width: fit-content;
+  margin: 20px auto;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: wheat;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cell:hover, .cell:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.piece {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background: wheat;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.App button, .color-square {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.App button {
+  background-color: #3498db;
+  color: black;
+  padding: 12px 24px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.App button:hover {
+  background-color: #2980b9;
+}
+
+.color-square {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border: 3px solid transparent;
+}
+
+.color-square:hover {
+  border-color: #2c3e50;
+}
+
+.custom-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-option label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.custom-option select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .board {
+    width: 90vw;
+    gap: 5px;
+  }
+
+  .cell {
+    width: calc(12vmin - 4px);
+    height: calc(12vmin - 4px);
+  }
+
+  .App {
+    max-width: 95%;
+  }
+
+  button, .color-square {
+    font-size: calc(14px + 1vmin);
+  }
+}
